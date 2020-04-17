@@ -3,6 +3,11 @@
     <div class="col-sm-6">
       <h1><%= @room.new_record? ? "Publicar": "Editar" %> Habitación</h1>
 
+      <% if @room.errors.any? %>
+        <% @room.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
       <%= form_for @room do |f| %>
         <div class="form-group">
           <%= f.text_field :title, class: 'form-control input-lg', placeholder: "Título" %>
