@@ -29,7 +29,13 @@ class RoomsController < ApplicationController
     else
       render :edit
     end
+  end
 
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    flash[:success] = "Successfully deleted"
+    redirect_to rooms_path
   end
 
   protected
