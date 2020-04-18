@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 .rooms {
   header {
     position: relative;
@@ -69,7 +71,6 @@
         }
 
         .actions {
-          display: none;
           position: absolute;
           bottom: 10px;
           right: 30px;

@@ -16,6 +16,22 @@ class RoomsController < ApplicationController
     end
   end
 
+  def edit
+    @room = Room.find(params[:id])
+  end
+
+  def update
+    @room = Room.find(params[:id])
+    @room.update(room_params)
+    if @room.save
+      flash[:success] = "Successfully edited"
+      redirect_to rooms_path
+    else
+      render :edit
+    end
+
+  end
+
   protected
     def room_params
       params.require(:room).permit(:title, :description, :beds, :guests, :price_per_night, :image_url)
